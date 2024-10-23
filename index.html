@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Craft Proxy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        pre {
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            max-width: 80%;
+            margin: 20px auto;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Infinite Craft Proxy</h1>
+<button onclick="fetchContent()">Fetch Infinite Craft</button>
+<pre id="output"></pre>
+
+<script>
+    async function fetchContent() {
+        try {
+            const response = await fetch('/proxy'); // Fetch from the proxy route
+            const content = await response.text();
+            document.getElementById('output').textContent = content;
+        } catch (error) {
+            document.getElementById('output').textContent = 'Error: ' + error;
+        }
+    }
+</script>
+
+</body>
+</html>
